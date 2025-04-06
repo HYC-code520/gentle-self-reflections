@@ -3,10 +3,10 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full py-8 px-4 mt-auto border-t border-pink-100/50">
-      <div className="max-w-md mx-auto text-center">
-        <p className="text-xs text-gray-500">Inner Child Check-In • A research-based approach to emotional wellness</p>
-        <p className="mt-1 text-xs text-gray-400">Self-compassion is a practice, not a destination</p>
+    <footer className="w-full py-6 px-4 mt-auto">
+      <div className="max-w-md mx-auto text-center text-xs text-gray-500">
+        <p>Inner Child Check-In • A safe space for reflection and healing</p>
+        <p className="mt-1">Remember: You are worthy of the same compassion you offer others</p>
       </div>
     </footer>
   );

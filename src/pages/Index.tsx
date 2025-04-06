@@ -7,10 +7,10 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-softPink/20">
+    <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-1 container mx-auto py-8 flex flex-col items-center gap-8">
+      <main className="flex-1 container mx-auto py-4 flex flex-col items-center gap-6">
         <InfoCard />
         <JournalEntry />
       </main>
