@@ -19,16 +19,15 @@ const JournalEntry = () => {
 
   const analyzeTone = async (text: string): Promise<ToneType> => {
     if (!text.trim()) return null;
-    try {
-      const scores = await analyzeToneWithPerspective(text);
-      const toxicity = scores.TOXICITY.summaryScore.value;
-      const insult = scores.INSULT.summaryScore.value;
 
-      if (toxicity > 0.7 || insult > 0.7) return "harsh";
-      if (toxicity < 0.3 && insult < 0.3) return "positive";
+    try {
+      const { isToxic, isInsult } = await analyzeToneWithPerspective(text);
+      console.log('API Response:', { isToxic, isInsult });
+
+      if (isToxic || isInsult) return "harsh";
       return "neutral";
-    } catch (err) {
-      console.error("Perspective API error:", err);
+    } catch (error) {
+      console.error('Error analyzing tone:', error);
       return "neutral";
     }
   };

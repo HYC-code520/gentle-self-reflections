@@ -10,7 +10,8 @@ interface PerspectiveResponse {
   };
 }
 
-export const analyzeSentiment = async (text: string): Promise<{ isToxic: boolean; isInsult: boolean }> => {
+export const analyzeToneWithPerspective = async (text: string): Promise<{ isToxic: boolean; isInsult: boolean }> => {
+  console.log('Analyzing text with Perspective API:', text);
   const THRESHOLD = 0.7;
   
   try {
