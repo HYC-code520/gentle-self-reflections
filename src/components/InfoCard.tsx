@@ -1,29 +1,24 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Heart } from 'lucide-react';
 
 const InfoCard = () => {
   return (
-    <Card className="max-w-md w-full mx-auto gradient-card border-none shadow-sm mt-6 mb-4">
+    <Card className="w-full max-w-md bg-gradient-to-br from-white to-softPink/10 border border-softPink/20 rounded-3xl shadow-sm">
       <CardContent className="p-6">
-        <h2 className="text-lg font-heading font-semibold mb-2 text-center">Why Check Your Self-Talk?</h2>
-        <p className="text-sm text-muted-foreground">
-          How we speak to ourselves shapes our inner world. This tool helps you notice when your self-talk becomes harsh—the kind you wouldn't use with a child or loved one.
+        <div className="flex items-center gap-2 mb-3">
+          <Heart className="h-5 w-5 text-pink-500" />
+          <h2 className="text-lg font-heading font-medium text-pink-900">Your Inner Child Check-in</h2>
+        </div>
+        
+        <p className="text-sm text-gray-600 mb-2">
+          Notice how you talk to yourself today. Would you speak this way to a child?
         </p>
-        <ul className="mt-4 text-sm space-y-2">
-          <li className="flex items-start gap-2">
-            <span className="text-pink-500 text-lg">•</span>
-            <span>Notice harsh inner critic patterns</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-pink-500 text-lg">•</span>
-            <span>Practice gentler, more compassionate self-talk</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-pink-500 text-lg">•</span>
-            <span>Nurture your inner child with the kindness they deserve</span>
-          </li>
-        </ul>
+        
+        <p className="text-sm text-gray-600">
+          Use this space to reflect on your self-talk and find gentler ways to speak to your inner child.
+        </p>
       </CardContent>
     </Card>
   );
