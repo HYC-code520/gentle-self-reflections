@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Heart, AlertTriangle, Check } from "lucide-react";
+import { Heart } from "lucide-react";
 import FeedbackDisplay from "./FeedbackDisplay";
 import MoodPicker from "./MoodPicker";
 import PromptSuggestions from "./PromptSuggestions";
 import CantTalkButton from "./CantTalkButton";
+import { analyzeToneWithPerspective } from "@/services/perspectiveApi";
 
 type ToneType = "positive" | "harsh" | "neutral" | null;
 
@@ -16,24 +17,26 @@ const JournalEntry = () => {
   const [gentleRephrasing, setGentleRephrasing] = useState("");
   const [selfCareMode, setSelfCareMode] = useState(false);
 
-  // This function would normally call an AI service to analyze the text
-  // For now we'll use a simple simulation
   const analyzeTone = async (text: string): Promise<ToneType> => {
     if (!text.trim()) return null;
-    
-    const { isToxic, isInsult } = await analyzeSentiment(text);
-    
-    if (isToxic || isInsult) return "harsh";
-    return "neutral";
+    try {
+      const scores = await analyzeToneWithPerspective(text);
+      const toxicity = scores.TOXICITY.summaryScore.value;
+      const insult = scores.INSULT.summaryScore.value;
+
+      if (toxicity > 0.7 || insult > 0.7) return "harsh";
+      if (toxicity < 0.3 && insult < 0.3) return "positive";
+      return "neutral";
+    } catch (err) {
+      console.error("Perspective API error:", err);
+      return "neutral";
+    }
   };
 
-  // This function would normally call an AI service to generate a gentler rephrasing
-  // For now we'll use simple templates
   const generateGentleRephrasing = (text: string, tone: ToneType): string => {
     if (tone === "positive") {
       return `That's a kind way to speak to yourself. Keep nurturing this positive self-talk!`;
     } else if (tone === "harsh") {
-      // Create a gentler version based on common patterns
       let gentler = text
         .replace(/failure/gi, "person who is still learning")
         .replace(/stupid/gi, "still figuring things out")
@@ -52,19 +55,16 @@ const JournalEntry = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!journalText.trim()) return;
 
     setIsSubmitting(true);
-
-    // Simulate API call with a delay
     try {
       const tone = await analyzeTone(journalText);
       setToneFeedback(tone);
       setGentleRephrasing(generateGentleRephrasing(journalText, tone));
     } catch (error) {
-      console.error('Error analyzing text:', error);
-      setToneFeedback('neutral');
+      console.error("Error analyzing text:", error);
+      setToneFeedback("neutral");
     } finally {
       setIsSubmitting(false);
     }
