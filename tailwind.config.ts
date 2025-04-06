@@ -63,11 +63,11 @@ export default {
 					ring: "hsl(var(--sidebar-ring))",
 				},
 				// Add our custom colors
-				softGreen: "#DEFFED",
+				softPink: "#FFDEE2",
 				comforting: {
-					sage: "#CAFED5",
-					mint: "#D3FDE1",
-					forest: "#DCFDE5",
+					rose: "#FECACA",
+					peach: "#FDE1D3",
+					lavender: "#EBDCFD",
 				},
 				softYellow: "#FEF7CD",
 				softBlue: "#D3E4FD",

@@ -5,8 +5,8 @@ const InfoCard = () => {
   return (
     <div className="w-full max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
       <div className="flex items-center gap-2 mb-3">
-        <Heart className="h-5 w-5 text-green-500" />
-        <h2 className="text-lg font-heading font-medium text-green-900">
+        <Heart className="h-5 w-5 text-pink-500" />
+        <h2 className="text-lg font-heading font-medium text-pink-900">
           Your Inner Child Check-in
         </h2>
       </div>
