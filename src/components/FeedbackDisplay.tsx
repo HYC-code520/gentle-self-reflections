@@ -28,9 +28,9 @@ const FeedbackDisplay = ({ tone, gentleRephrasing }: FeedbackDisplayProps) => {
       break;
     case 'neutral':
       message = "Your self-talk is balanced. Remember that consistent self-compassion supports emotional resilience.";
-      icon = <Heart className="h-5 w-5 text-indigo-500" />;
-      bgColor = "bg-indigo-50";
-      borderColor = "border-indigo-100";
+      icon = <Heart className="h-5 w-5 text-pink-500" />;
+      bgColor = "bg-pink-50";
+      borderColor = "border-pink-100";
       break;
     default:
       return null;
@@ -45,9 +45,9 @@ const FeedbackDisplay = ({ tone, gentleRephrasing }: FeedbackDisplayProps) => {
       </div>
       
       {/* Gentle rephrasing section */}
-      <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 shadow-sm">
+      <div className="bg-softPink/10 p-4 rounded-lg border border-pink-100/50 shadow-sm">
         <div className="flex items-center gap-2 mb-2">
-          <Lightbulb className="h-4 w-4 text-indigo-500" />
+          <Lightbulb className="h-4 w-4 text-pink-500" />
           <h3 className="text-sm font-medium text-gray-700">Suggested reframing:</h3>
         </div>
         <p className="text-sm text-gray-600 pl-6">{gentleRephrasing}</p>

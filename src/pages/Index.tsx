@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-softPink/20">
       <Header />
       
       <main className="flex-1 container mx-auto py-8 flex flex-col items-center gap-8">

@@ -71,7 +71,7 @@ const JournalEntry = () => {
 
   return (
     <div className="max-w-md w-full mx-auto px-4 sm:px-0">
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
+      <div className="bg-gradient-to-br from-white to-softPink/10 rounded-xl p-6 shadow-sm border border-pink-100">
         <form onSubmit={handleSubmit}>
           <label 
             htmlFor="journal-entry" 
@@ -82,7 +82,7 @@ const JournalEntry = () => {
           <Textarea
             id="journal-entry"
             placeholder="How are you speaking to yourself today? (e.g., 'I feel like I'm not good enough')"
-            className="w-full p-4 rounded-lg border-neutral-200 focus:border-indigo-300 focus:ring-indigo-300 min-h-[150px] text-sm"
+            className="w-full p-4 rounded-lg border-pink-200/50 focus:border-pink-300 focus:ring-pink-300 min-h-[150px] text-sm"
             value={journalText}
             onChange={(e) => setJournalText(e.target.value)}
           />
@@ -91,7 +91,7 @@ const JournalEntry = () => {
             <Button 
               type="submit" 
               disabled={isSubmitting || !journalText.trim()} 
-              className="rounded-lg px-5 py-2 bg-indigo-600 hover:bg-indigo-700 transition-colors text-white font-medium flex items-center gap-2"
+              className="rounded-lg px-5 py-2 bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 transition-colors text-white font-medium flex items-center gap-2"
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
