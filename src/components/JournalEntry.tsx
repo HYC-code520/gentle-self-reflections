@@ -18,40 +18,12 @@ const JournalEntry = () => {
 
   // This function would normally call an AI service to analyze the text
   // For now we'll use a simple simulation
-  const analyzeTone = (text: string): ToneType => {
+  const analyzeTone = async (text: string): Promise<ToneType> => {
     if (!text.trim()) return null;
-
-    const lowerText = text.toLowerCase();
-    const harshWords = [
-      "failure",
-      "stupid",
-      "hate",
-      "terrible",
-      "worst",
-      "useless",
-      "never",
-      "bad",
-    ];
-    const positiveWords = [
-      "proud",
-      "good",
-      "trying",
-      "learning",
-      "growing",
-      "best",
-      "love",
-      "kind",
-    ];
-
-    const harshCount = harshWords.filter((word) =>
-      lowerText.includes(word),
-    ).length;
-    const positiveCount = positiveWords.filter((word) =>
-      lowerText.includes(word),
-    ).length;
-
-    if (harshCount > positiveCount) return "harsh";
-    if (positiveCount > harshCount) return "positive";
+    
+    const { isToxic, isInsult } = await analyzeSentiment(text);
+    
+    if (isToxic || isInsult) return "harsh";
     return "neutral";
   };
 
@@ -86,12 +58,16 @@ const JournalEntry = () => {
     setIsSubmitting(true);
 
     // Simulate API call with a delay
-    setTimeout(() => {
-      const tone = analyzeTone(journalText);
+    try {
+      const tone = await analyzeTone(journalText);
       setToneFeedback(tone);
       setGentleRephrasing(generateGentleRephrasing(journalText, tone));
+    } catch (error) {
+      console.error('Error analyzing text:', error);
+      setToneFeedback('neutral');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const handleMoodSelect = (text: string) => {
