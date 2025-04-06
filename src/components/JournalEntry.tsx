@@ -71,37 +71,37 @@ const JournalEntry = () => {
 
   return (
     <div className="max-w-md w-full mx-auto px-4 sm:px-0">
-      <div className="bg-white rounded-3xl p-6 shadow-md border border-softPink/20">
+      <div className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
         <form onSubmit={handleSubmit}>
           <label 
             htmlFor="journal-entry" 
-            className="block text-sm font-medium text-gray-700 mb-2 font-heading"
+            className="block text-sm font-medium text-gray-700 mb-2"
           >
-            Share how you're talking to yourself today:
+            Reflect on your internal dialogue
           </label>
           <Textarea
             id="journal-entry"
-            placeholder="Type your thoughts here... (e.g., 'I feel like I'm not good enough')"
-            className="w-full p-4 rounded-2xl border-softPink focus:border-pink-400 focus:ring-pink-400 min-h-[120px] input-shadow"
+            placeholder="How are you speaking to yourself today? (e.g., 'I feel like I'm not good enough')"
+            className="w-full p-4 rounded-lg border-neutral-200 focus:border-indigo-300 focus:ring-indigo-300 min-h-[150px] text-sm"
             value={journalText}
             onChange={(e) => setJournalText(e.target.value)}
           />
           
-          <div className="mt-4 flex justify-center">
+          <div className="mt-5 flex justify-end">
             <Button 
               type="submit" 
               disabled={isSubmitting || !journalText.trim()} 
-              className="rounded-full px-8 py-2 bg-gradient-to-r from-softPink to-pink-400 hover:opacity-90 transition-all duration-300 text-pink-900 font-medium flex items-center gap-2"
+              className="rounded-lg px-5 py-2 bg-indigo-600 hover:bg-indigo-700 transition-colors text-white font-medium flex items-center gap-2"
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
-                  <div className="animate-spin h-4 w-4 border-2 border-pink-900 border-t-transparent rounded-full"></div>
-                  <span>Reflecting...</span>
+                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                  <span>Analyzing...</span>
                 </div>
               ) : (
                 <>
                   <Heart className="h-4 w-4" />
-                  <span>Check Your Self-Talk</span>
+                  <span>Analyze Self-Talk</span>
                 </>
               )}
             </Button>
