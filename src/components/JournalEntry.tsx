@@ -113,7 +113,7 @@ const JournalEntry = () => {
   };
 
   return (
-    <div className="max-w-md w-full mx-auto px-4 sm:px-0">
+    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="bg-white rounded-3xl p-6 shadow-md border border-softPink/20">
         <form onSubmit={handleSubmit}>
           <label
