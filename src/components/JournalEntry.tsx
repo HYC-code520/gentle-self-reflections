@@ -143,7 +143,7 @@ const JournalEntry = () => {
                 disabled={
                   isSubmitting || (!journalText.trim() && !selfCareMode)
                 }
-                className="mt-2 rounded-full px-6 py-2 bg-gradient-to-r from-softPink to-pink-400 hover:opacity-90 transition-all duration-300 text-pink-900 font-medium flex items-center gap-2 shadow-sm"
+                className="mt-2 rounded-full px-6 py-2 bg-gradient-to-r from-softGreen to-green-400 hover:opacity-90 transition-all duration-300 text-green-900 font-medium flex items-center gap-2 shadow-sm"
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
