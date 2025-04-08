@@ -7,6 +7,7 @@ import MoodPicker from "./MoodPicker";
 import PromptSuggestions from "./PromptSuggestions";
 import CantTalkButton from "./CantTalkButton";
 import { analyzeToneWithPerspective } from "@/services/perspectiveApi";
+import { checkIfHarshSemantically } from "@/services/semanticToneCheck";
 
 type ToneType = "positive" | "harsh" | "neutral" | null;
 
@@ -22,12 +23,14 @@ const JournalEntry = () => {
 
     try {
       const { isToxic, isInsult } = await analyzeToneWithPerspective(text);
-      console.log('API Response:', { isToxic, isInsult });
+      const semanticHarsh = await checkIfHarshSemantically(text);
 
-      if (isToxic || isInsult) return "harsh";
+      console.log("API Response:", { isToxic, isInsult, semanticHarsh });
+
+      if (isToxic || isInsult || semanticHarsh) return "harsh";
       return "neutral";
     } catch (error) {
-      console.error('Error analyzing tone:', error);
+      console.error("Error analyzing tone:", error);
       return "neutral";
     }
   };
@@ -36,17 +39,35 @@ const JournalEntry = () => {
     if (tone === "positive") {
       return `That's a kind way to speak to yourself. Keep nurturing this positive self-talk!`;
     } else if (tone === "harsh") {
-      let gentler = text
-        .replace(/failure/gi, "person who is still learning")
-        .replace(/stupid/gi, "still figuring things out")
-        .replace(/hate/gi, "find challenging")
-        .replace(/terrible/gi, "having difficulty with")
-        .replace(/worst/gi, "struggling with")
-        .replace(/useless/gi, "still developing skills")
-        .replace(/never/gi, "not yet")
-        .replace(/bad/gi, "learning");
+      const replacements: { [key: string]: string } = {
+        failure: "someone who's still growing",
+        stupid: "still figuring things out",
+        "hate myself": "find parts of myself challenging",
+        terrible: "having a tough time",
+        worst: "struggling lately",
+        useless: "learning through effort",
+        never: "not yet",
+        bad: "still learning",
+        "not good enough": "doing your best in a tough moment",
+        "don't feel good enough": "worthy, even when it’s hard",
+      };
 
-      return `A gentler way to phrase this might be: "${gentler}"`;
+      let gentler = text;
+      let changed = false;
+
+      for (const [pattern, replacement] of Object.entries(replacements)) {
+        const regex = new RegExp(pattern, "gi");
+        if (regex.test(gentler)) {
+          gentler = gentler.replace(regex, replacement);
+          changed = true;
+        }
+      }
+
+      if (changed) {
+        return `A gentler way to phrase this might be: "${gentler}"`;
+      } else {
+        return `You're being really hard on yourself. What would you say to a friend who said that?`;
+      }
     } else {
       return `You're doing well balancing your thoughts. Remember that it's okay to be kind to yourself.`;
     }
