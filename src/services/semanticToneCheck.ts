@@ -2,7 +2,7 @@ export const checkIfHarshSemantically = async (
   input: string,
 ): Promise<boolean> => {
   try {
-    const response = await fetch('http://localhost:3001/check-harsh', {
+    const response = await fetch('http://0.0.0.0:3001/check-harsh', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
