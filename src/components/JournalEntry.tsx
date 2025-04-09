@@ -7,6 +7,7 @@ import MoodPicker from "./MoodPicker";
 import PromptSuggestions from "./PromptSuggestions";
 import CantTalkButton from "./CantTalkButton";
 import { analyzeToneWithPerspective } from "@/services/perspectiveApi";
+import { generateGentlerResponse } from "@/services/openaiService";
 
 type ToneType = "positive" | "harsh" | "neutral" | null;
 
