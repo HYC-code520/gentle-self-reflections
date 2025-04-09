@@ -14,15 +14,6 @@
     "skipLibCheck": true,
     "allowJs": true,
     "noUnusedLocals": false,
-    "strictNullChecks": false,
-
-    // 👇 Add these lines
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "target": "ES2020",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    "strict": true
+    "strictNullChecks": false
   }
 }
