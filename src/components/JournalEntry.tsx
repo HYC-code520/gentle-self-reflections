@@ -50,6 +50,10 @@ const JournalEntry = () => {
     if (tone === "positive") {
       return `That's a kind way to speak to yourself. Keep nurturing this positive self-talk!`;
     } else if (tone === "harsh") {
+      if (text.toLowerCase().includes("nothing i do is ever enough")) {
+        return `A gentler way to think about this might be: "I'm doing my best, and that's valuable. Each step I take is progress, even if it feels small."`;
+      }
+      
       let gentler = text
         .replace(/failure/gi, "person who is still learning")
         .replace(/stupid/gi, "still figuring things out")
@@ -58,6 +62,8 @@ const JournalEntry = () => {
         .replace(/worst/gi, "struggling with")
         .replace(/useless/gi, "still developing skills")
         .replace(/never/gi, "not yet")
+        .replace(/nothing/gi, "some things")
+        .replace(/ever enough/gi, "a work in progress")
         .replace(/bad/gi, "learning");
 
       return `A gentler way to phrase this might be: "${gentler}"`;
