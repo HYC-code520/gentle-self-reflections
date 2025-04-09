@@ -42,7 +42,7 @@ const JournalEntry = () => {
       ];
 
       const negativeWords = ["failure", "hopeless", "inadequate", "disappointing", "incompetent"];
-      
+
       const containsNegativePattern = negativePatterns.some(pattern => pattern.test(text));
       const containsNegativeWord = negativeWords.some(word => text.toLowerCase().includes(word));
 
@@ -67,6 +67,24 @@ const JournalEntry = () => {
     }
   };
 
+  const appendUniqueText = (newText: string) => {
+    setJournalText(prevText => {
+      const lines = prevText.split('\n').map(line => line.trim());
+      if (!lines.includes(newText.trim())) {
+        return prevText ? `${prevText}\n${newText}` : newText;
+      }
+      return prevText;
+    });
+  };
+
+  const handleMoodSelect = (text: string) => {
+    appendUniqueText(text);
+  };
+
+  const handlePromptSelect = (text: string) => {
+    appendUniqueText(text);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!journalText.trim()) return;
@@ -83,14 +101,6 @@ const JournalEntry = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleMoodSelect = (text: string) => {
-    setJournalText(text);
-  };
-
-  const handlePromptSelect = (text: string) => {
-    setJournalText(text);
   };
 
   const handleSelfCareMode = () => {
