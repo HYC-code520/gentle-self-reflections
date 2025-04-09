@@ -39,6 +39,7 @@ const JournalEntry = () => {
       );
 
       if (isToxic || isInsult || containsNegativePattern) return "harsh";
+      if (text.toLowerCase().includes("enough")) return "harsh";
       return "neutral";
     } catch (error) {
       console.error('Error analyzing tone:', error);
@@ -50,7 +51,8 @@ const JournalEntry = () => {
     if (tone === "positive") {
       return `That's a kind way to speak to yourself. Keep nurturing this positive self-talk!`;
     } else if (tone === "harsh") {
-      return await generateGentlerResponse(text);
+      const response = await generateGentlerResponse(text);
+      return response;
     } else {
       return `You're doing well balancing your thoughts. Remember that it's okay to be kind to yourself.`;
     }
