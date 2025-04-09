@@ -1,0 +1,98 @@
+Access to fetch at 'https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev:5000/check-harsh' from origin 'https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.Understand this error
+semanticToneCheck.ts:5 
+            
+            
+           POST https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev:5000/check-harsh net::ERR_FAILED
+checkIfHarshSemantically @ semanticToneCheck.ts:5
+analyzeTone @ JournalEntry.tsx:26
+await in analyzeTone
+handleSubmit @ JournalEntry.tsx:82
+callCallback2 @ chunk-FJ2A54M7.js?v=aefbed84:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=aefbed84:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=aefbed84:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=aefbed84:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=aefbed84:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=aefbed84:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=aefbed84:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=aefbed84:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=aefbed84:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=aefbed84:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=aefbed84:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=aefbed84:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=aefbed84:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=aefbed84:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=aefbed84:5449Understand this error
+hook.js:608 Error checking harsh tone: TypeError: Failed to fetch
+    at checkIfHarshSemantically (semanticToneCheck.ts:5:28)
+    at analyzeTone (JournalEntry.tsx:26:35)
+    at async handleSubmit (JournalEntry.tsx:82:20)
+overrideMethod @ hook.js:608
+checkIfHarshSemantically @ semanticToneCheck.ts:24
+await in checkIfHarshSemantically
+analyzeTone @ JournalEntry.tsx:26
+await in analyzeTone
+handleSubmit @ JournalEntry.tsx:82
+callCallback2 @ chunk-FJ2A54M7.js?v=aefbed84:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=aefbed84:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=aefbed84:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=aefbed84:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=aefbed84:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=aefbed84:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=aefbed84:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=aefbed84:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=aefbed84:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=aefbed84:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=aefbed84:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=aefbed84:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=aefbed84:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=aefbed84:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=aefbed84:5449Understand this error
+531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/:1 Access to fetch at 'https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev:5000/check-harsh' from origin 'https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.Understand this error
+semanticToneCheck.ts:5 
+            
+            
+           POST https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev:5000/check-harsh net::ERR_FAILED
+checkIfHarshSemantically @ semanticToneCheck.ts:5
+analyzeTone @ JournalEntry.tsx:26
+await in analyzeTone
+handleSubmit @ JournalEntry.tsx:82
+callCallback2 @ chunk-FJ2A54M7.js?v=aefbed84:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=aefbed84:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=aefbed84:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=aefbed84:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=aefbed84:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=aefbed84:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=aefbed84:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=aefbed84:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=aefbed84:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=aefbed84:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=aefbed84:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=aefbed84:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=aefbed84:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=aefbed84:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=aefbed84:5449Understand this error
+hook.js:608 Error checking harsh tone: TypeError: Failed to fetch
+    at checkIfHarshSemantically (semanticToneCheck.ts:5:28)
+    at analyzeTone (JournalEntry.tsx:26:35)
+    at async handleSubmit (JournalEntry.tsx:82:20)
+overrideMethod @ hook.js:608
+checkIfHarshSemantically @ semanticToneCheck.ts:24
+await in checkIfHarshSemantically
+analyzeTone @ JournalEntry.tsx:26
+await in analyzeTone
+handleSubmit @ JournalEntry.tsx:82
+callCallback2 @ chunk-FJ2A54M7.js?v=aefbed84:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=aefbed84:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=aefbed84:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=aefbed84:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=aefbed84:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=aefbed84:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=aefbed84:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=aefbed84:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=aefbed84:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=aefbed84:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=aefbed84:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=aefbed84:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=aefbed84:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=aefbed84:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=aefbed84:5449Understand this error

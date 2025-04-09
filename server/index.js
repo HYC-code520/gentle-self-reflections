@@ -7,7 +7,7 @@ const harshExamples = require("../src/lib/harshEmbeddings.json");
 dotenv.config();
 
 const app = express();
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ apiKey: process.env.VITE_OPENAI_API_KEY });
 app.use(cors());
 app.use(express.json());
 
@@ -42,6 +42,6 @@ app.post("/check-harsh", async (req, res) => {
   }
 });
 
-app.listen(3001, "0.0.0.0", () => {
-  console.log("Server running on http://0.0.0.0:3001");
+app.listen(5000, "0.0.0.0", () => {
+  console.log("Server running on http://0.0.0.0:5000");
 });

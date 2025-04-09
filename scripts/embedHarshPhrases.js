@@ -1,11 +1,10 @@
-// scripts/embedHarshPhrases.js
 import { writeFileSync } from "fs";
 import dotenv from "dotenv";
 import OpenAI from "openai";
 
-dotenv.config(); // Load .env
+dotenv.config(); // Load environment variables
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ apiKey: process.env.VITE_OPENAI_API_KEY }); // Using the correct environment variable
 
 const harshPhrases = [
   "I'm such a failure",
@@ -41,4 +40,4 @@ async function generateEmbeddings() {
   console.log("✅ Embeddings saved to src/lib/harshEmbeddings.json");
 }
 
-generateEmbeddings().catch(console.error);
+generateEmbeddings().catch(console.err);
