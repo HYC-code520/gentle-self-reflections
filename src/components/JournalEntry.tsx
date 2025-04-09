@@ -32,14 +32,21 @@ const JournalEntry = () => {
         /always fail/i,
         /can't do anything/i,
         /worthless/i,
-        /useless/i
+        /useless/i,
+        /falling behind/i,
+        /not good enough/i,
+        /behind/i,
+        /failing/i,
+        /can't keep up/i,
+        /struggle/i
       ];
 
-      const containsNegativePattern = negativePatterns.some(pattern => 
-        pattern.test(text)
-      );
+      const negativeWords = ["failure", "hopeless", "inadequate", "disappointing", "incompetent"];
+      
+      const containsNegativePattern = negativePatterns.some(pattern => pattern.test(text));
+      const containsNegativeWord = negativeWords.some(word => text.toLowerCase().includes(word));
 
-      if (isToxic || isInsult || containsNegativePattern || text.toLowerCase().includes("enough")) {
+      if (isToxic || isInsult || containsNegativePattern || containsNegativeWord || text.toLowerCase().includes("enough")) {
         return "harsh";
       }
       return text.length > 0 ? "neutral" : null;
