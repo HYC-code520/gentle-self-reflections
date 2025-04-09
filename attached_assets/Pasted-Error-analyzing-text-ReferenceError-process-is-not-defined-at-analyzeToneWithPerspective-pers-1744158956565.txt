@@ -1,0 +1,84 @@
+Error analyzing text: ReferenceError: process is not defined
+    at analyzeToneWithPerspective (perspectiveApi.ts:18:108)
+    at analyzeTone (JournalEntry.tsx:24:43)
+    at handleSubmit (JournalEntry.tsx:65:26)
+    at HTMLUnknownElement.callCallback2 (chunk-FJ2A54M7.js?v=9bf3a3b5:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-FJ2A54M7.js?v=9bf3a3b5:3699:24)
+    at invokeGuardedCallback (chunk-FJ2A54M7.js?v=9bf3a3b5:3733:39)
+    at invokeGuardedCallbackAndCatchFirstError (chunk-FJ2A54M7.js?v=9bf3a3b5:3736:33)
+    at executeDispatch (chunk-FJ2A54M7.js?v=9bf3a3b5:7014:11)
+    at processDispatchQueueItemsInOrder (chunk-FJ2A54M7.js?v=9bf3a3b5:7034:15)
+    at processDispatchQueue (chunk-FJ2A54M7.js?v=9bf3a3b5:7043:13)
+overrideMethod @ hook.js:608
+analyzeToneWithPerspective @ perspectiveApi.ts:37
+analyzeTone @ JournalEntry.tsx:24
+handleSubmit @ JournalEntry.tsx:65
+callCallback2 @ chunk-FJ2A54M7.js?v=9bf3a3b5:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=9bf3a3b5:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=9bf3a3b5:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=9bf3a3b5:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=9bf3a3b5:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=9bf3a3b5:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=9bf3a3b5:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=9bf3a3b5:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=9bf3a3b5:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=9bf3a3b5:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=9bf3a3b5:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=9bf3a3b5:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=9bf3a3b5:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=9bf3a3b5:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=9bf3a3b5:5449Understand this error
+hook.js:608 Error analyzing text: ReferenceError: generateGentlerResponse is not defined
+    at generateGentleRephrasing (JournalEntry.tsx:53:7)
+    at handleSubmit (JournalEntry.tsx:67:30)
+overrideMethod @ hook.js:608
+handleSubmit @ JournalEntry.tsx:70
+await in handleSubmit
+callCallback2 @ chunk-FJ2A54M7.js?v=9bf3a3b5:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=9bf3a3b5:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=9bf3a3b5:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=9bf3a3b5:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=9bf3a3b5:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=9bf3a3b5:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=9bf3a3b5:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=9bf3a3b5:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=9bf3a3b5:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=9bf3a3b5:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=9bf3a3b5:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=9bf3a3b5:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=9bf3a3b5:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=9bf3a3b5:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=9bf3a3b5:5449Understand this error
+hook.js:608 Error analyzing text: ReferenceError: process is not defined
+    at analyzeToneWithPerspective (perspectiveApi.ts:18:108)
+    at analyzeTone (JournalEntry.tsx:24:43)
+    at handleSubmit (JournalEntry.tsx:65:26)
+    at HTMLUnknownElement.callCallback2 (chunk-FJ2A54M7.js?v=9bf3a3b5:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-FJ2A54M7.js?v=9bf3a3b5:3699:24)
+    at invokeGuardedCallback (chunk-FJ2A54M7.js?v=9bf3a3b5:3733:39)
+    at invokeGuardedCallbackAndCatchFirstError (chunk-FJ2A54M7.js?v=9bf3a3b5:3736:33)
+    at executeDispatch (chunk-FJ2A54M7.js?v=9bf3a3b5:7014:11)
+    at processDispatchQueueItemsInOrder (chunk-FJ2A54M7.js?v=9bf3a3b5:7034:15)
+    at processDispatchQueue (chunk-FJ2A54M7.js?v=9bf3a3b5:7043:13)
+overrideMethod @ hook.js:608
+analyzeToneWithPerspective @ perspectiveApi.ts:37
+analyzeTone @ JournalEntry.tsx:24
+handleSubmit @ JournalEntry.tsx:65
+callCallback2 @ chunk-FJ2A54M7.js?v=9bf3a3b5:3674
+invokeGuardedCallbackDev @ chunk-FJ2A54M7.js?v=9bf3a3b5:3699
+invokeGuardedCallback @ chunk-FJ2A54M7.js?v=9bf3a3b5:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-FJ2A54M7.js?v=9bf3a3b5:3736
+executeDispatch @ chunk-FJ2A54M7.js?v=9bf3a3b5:7014
+processDispatchQueueItemsInOrder @ chunk-FJ2A54M7.js?v=9bf3a3b5:7034
+processDispatchQueue @ chunk-FJ2A54M7.js?v=9bf3a3b5:7043
+dispatchEventsForPlugins @ chunk-FJ2A54M7.js?v=9bf3a3b5:7051
+(anonymous) @ chunk-FJ2A54M7.js?v=9bf3a3b5:7174
+batchedUpdates$1 @ chunk-FJ2A54M7.js?v=9bf3a3b5:18913
+batchedUpdates @ chunk-FJ2A54M7.js?v=9bf3a3b5:3579
+dispatchEventForPluginEventSystem @ chunk-FJ2A54M7.js?v=9bf3a3b5:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-FJ2A54M7.js?v=9bf3a3b5:5478
+dispatchEvent @ chunk-FJ2A54M7.js?v=9bf3a3b5:5472
+dispatchDiscreteEvent @ chunk-FJ2A54M7.js?v=9bf3a3b5:5449Understand this error
+hook.js:608 Error analyzing text: ReferenceError: generateGentlerResponse is not defined
+    at generateGentleRephrasing (JournalEntry.tsx:53:7)
+    at handleSubmit (JournalEntry.tsx:67:30)
