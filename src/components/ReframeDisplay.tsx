@@ -25,10 +25,12 @@ const ReframeDisplay = ({ intro, reframes }: ReframeDisplayProps) => {
   const handleFavorite = (reframe: Reframe) => {
     setFavorites(prev => {
       const exists = prev.some(f => f.original === reframe.original);
-      if (exists) {
-        return prev.filter(f => f.original !== reframe.original);
-      }
-      return [...prev, reframe];
+      const newFavorites = exists 
+        ? prev.filter(f => f.original !== reframe.original)
+        : [...prev, reframe];
+      
+      localStorage.setItem('favoriteReframes', JSON.stringify(newFavorites));
+      return newFavorites;
     });
   };
 

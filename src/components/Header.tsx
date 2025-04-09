@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -12,8 +11,13 @@ const Header = () => {
           <Heart className="h-6 w-6 text-softPink" />
           <h1 className="text-pink-900 text-xl font-heading font-semibold">Inner Child Check-in</h1>
         </Link>
-        
-        <UserMenu />
+
+        <div className="flex items-center gap-4">
+          <Link to="/favorites" className="text-gray-600 hover:text-pink-500">
+            Favorites
+          </Link>
+          <UserMenu />
+        </div>
       </div>
     </header>
   );
