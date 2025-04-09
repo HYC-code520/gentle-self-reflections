@@ -18,55 +18,6 @@ const JournalEntry = () => {
   const [gentleRephrasing, setGentleRephrasing] = useState("");
   const [selfCareMode, setSelfCareMode] = useState(false);
 
-  const analyzeTone = async (text: string): Promise<ToneType> => {
-    if (!text.trim()) return null;
-
-    try {
-      const { isToxic, isInsult } = await analyzeToneWithPerspective(text);
-      console.log('API Response:', { isToxic, isInsult });
-
-      // Check for negative self-talk patterns
-      const negativePatterns = [
-        /never enough/i,
-        /nothing .* enough/i,
-        /always fail/i,
-        /can't do anything/i,
-        /worthless/i,
-        /useless/i,
-        /falling behind/i,
-        /not good enough/i,
-        /behind/i,
-        /failing/i,
-        /can't keep up/i,
-        /struggle/i
-      ];
-
-      const negativeWords = ["failure", "hopeless", "inadequate", "disappointing", "incompetent"];
-
-      const containsNegativePattern = negativePatterns.some(pattern => pattern.test(text));
-      const containsNegativeWord = negativeWords.some(word => text.toLowerCase().includes(word));
-
-      if (isToxic || isInsult || containsNegativePattern || containsNegativeWord || text.toLowerCase().includes("enough")) {
-        return "harsh";
-      }
-      return text.length > 0 ? "neutral" : null;
-    } catch (error) {
-      console.error('Error analyzing tone:', error);
-      return "neutral";
-    }
-  };
-
-  const generateGentleRephrasing = async (text: string, tone: ToneType): Promise<string> => {
-    if (tone === "positive") {
-      return `That's a kind way to speak to yourself. Keep nurturing this positive self-talk!`;
-    } else if (tone === "harsh") {
-      const response = await generateGentlerResponse(text);
-      return response;
-    } else {
-      return `You're doing well balancing your thoughts. Remember that it's okay to be kind to yourself.`;
-    }
-  };
-
   const appendUniqueText = (newText: string) => {
     setJournalText(prevText => {
       const lines = prevText.split('\n').map(line => line.trim());
@@ -91,13 +42,47 @@ const JournalEntry = () => {
 
     setIsSubmitting(true);
     try {
-      const tone = await analyzeTone(journalText);
+      const { isToxic, isInsult } = await analyzeToneWithPerspective(journalText);
+
+      // Check for negative self-talk patterns
+      const negativePatterns = [
+        /never enough/i,
+        /nothing .* enough/i,
+        /always fail/i,
+        /can't do anything/i,
+        /worthless/i,
+        /useless/i,
+        /falling behind/i,
+        /not good enough/i,
+        /behind/i,
+        /failing/i,
+        /can't keep up/i,
+        /struggle/i
+      ];
+
+      const negativeWords = ["failure", "hopeless", "inadequate", "disappointing", "incompetent"];
+
+      const containsNegativePattern = negativePatterns.some(pattern => pattern.test(journalText));
+      const containsNegativeWord = negativeWords.some(word => journalText.toLowerCase().includes(word));
+
+      const tone: ToneType = isToxic || isInsult || containsNegativePattern || containsNegativeWord || journalText.toLowerCase().includes("enough")
+        ? "harsh"
+        : journalText.length > 0 ? "neutral" : null;
+
       setToneFeedback(tone);
-      const response = await generateGentleRephrasing(journalText, tone);
-      setGentleRephrasing(response);
+
+      if (tone === "harsh") {
+        const response = await generateGentlerResponse(journalText);
+        setGentleRephrasing(response);
+      } else if (tone === "positive") {
+        setGentleRephrasing("That's a kind way to speak to yourself. Keep nurturing this positive self-talk!");
+      } else {
+        setGentleRephrasing("You're doing well balancing your thoughts. Remember that it's okay to be kind to yourself.");
+      }
     } catch (error) {
       console.error("Error analyzing text:", error);
       setToneFeedback("neutral");
+      setGentleRephrasing("Let's try to approach this with gentleness.");
     } finally {
       setIsSubmitting(false);
     }
@@ -105,12 +90,10 @@ const JournalEntry = () => {
 
   const handleSelfCareMode = () => {
     setSelfCareMode(true);
-    if (!toneFeedback) {
-      setToneFeedback("positive");
-      setGentleRephrasing(
-        "It's perfectly okay to rest. Your inner child thanks you for recognizing when you need space. You're showing wisdom by pausing when you need to.",
-      );
-    }
+    setToneFeedback("positive");
+    setGentleRephrasing(
+      "It's perfectly okay to rest. Your inner child thanks you for recognizing when you need space. You're showing wisdom by pausing when you need to.",
+    );
   };
 
   return (
@@ -133,7 +116,6 @@ const JournalEntry = () => {
 
           <div className="mt-4 space-y-4">
             <MoodPicker onMoodSelect={handleMoodSelect} />
-
             <PromptSuggestions onPromptSelect={handlePromptSelect} />
 
             <div className="flex flex-col items-start space-y-4">
@@ -141,9 +123,7 @@ const JournalEntry = () => {
 
               <Button
                 type="submit"
-                disabled={
-                  isSubmitting || (!journalText.trim() && !selfCareMode)
-                }
+                disabled={isSubmitting || (!journalText.trim() && !selfCareMode)}
                 className="mt-2 rounded-full px-6 py-2 bg-gradient-to-r from-softPink to-pink-400 hover:opacity-90 transition-all duration-300 text-pink-900 font-medium flex items-center gap-2 shadow-sm"
               >
                 {isSubmitting ? (
