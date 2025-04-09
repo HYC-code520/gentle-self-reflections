@@ -12,7 +12,7 @@ interface PerspectiveResponse {
 
 export const analyzeToneWithPerspective = async (text: string): Promise<{ isToxic: boolean; isInsult: boolean }> => {
   console.log('Analyzing text with Perspective API:', text);
-  const THRESHOLD = 0.7;
+  const THRESHOLD = 0.5;
   
   try {
     const response = await fetch('https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=' + process.env.VITE_PERSPECTIVE_API_KEY, {

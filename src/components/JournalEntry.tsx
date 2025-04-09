@@ -24,7 +24,21 @@ const JournalEntry = () => {
       const { isToxic, isInsult } = await analyzeToneWithPerspective(text);
       console.log('API Response:', { isToxic, isInsult });
 
-      if (isToxic || isInsult) return "harsh";
+      // Check for negative self-talk patterns
+      const negativePatterns = [
+        /never enough/i,
+        /nothing .* enough/i,
+        /always fail/i,
+        /can't do anything/i,
+        /worthless/i,
+        /useless/i
+      ];
+
+      const containsNegativePattern = negativePatterns.some(pattern => 
+        pattern.test(text)
+      );
+
+      if (isToxic || isInsult || containsNegativePattern) return "harsh";
       return "neutral";
     } catch (error) {
       console.error('Error analyzing tone:', error);
