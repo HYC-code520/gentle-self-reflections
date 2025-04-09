@@ -1,0 +1,39 @@
+hook.js:608 The above error occurred in the <p> component:
+
+    at p
+    at div
+    at div
+    at FeedbackDisplay (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/src/components/FeedbackDisplay.tsx:12:28)
+    at div
+    at div
+    at JournalEntry (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/src/components/JournalEntry.tsx:22:43)
+    at main
+    at div
+    at Index
+    at RenderedRoute (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9bf3a3b5:4069:5)
+    at Routes (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9bf3a3b5:4508:5)
+    at AuthProvider (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/src/hooks/useAuth.tsx:16:32)
+    at Router (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9bf3a3b5:4451:15)
+    at BrowserRouter (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=9bf3a3b5:5196:5)
+    at Provider (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/chunk-6MOJXRG6.js?v=9bf3a3b5:42:15)
+    at TooltipProvider (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=9bf3a3b5:2295:5)
+    at QueryClientProvider (https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=9bf3a3b5:2794:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+chunk-FJ2A54M7.js?v=9bf3a3b5:9934 Uncaught Error: Objects are not valid as a React child (found: [object Promise]). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (chunk-FJ2A54M7.js?v=9bf3a3b5:9934:17)
+    at reconcileChildFibers2 (chunk-FJ2A54M7.js?v=9bf3a3b5:10564:15)
+    at reconcileChildren (chunk-FJ2A54M7.js?v=9bf3a3b5:14290:37)
+    at updateHostComponent (chunk-FJ2A54M7.js?v=9bf3a3b5:14807:11)
+    at beginWork (chunk-FJ2A54M7.js?v=9bf3a3b5:15935:22)
+    at beginWork$1 (chunk-FJ2A54M7.js?v=9bf3a3b5:19753:22)
+    at performUnitOfWork (chunk-FJ2A54M7.js?v=9bf3a3b5:19198:20)
+    at workLoopSync (chunk-FJ2A54M7.js?v=9bf3a3b5:19137:13)
+    at renderRootSync (chunk-FJ2A54M7.js?v=9bf3a3b5:19116:15)
+    at recoverFromConcurrentError (chunk-FJ2A54M7.js?v=9bf3a3b5:18736:28)
+
+JournalEntry.tsx:53 Uncaught (in promise) ReferenceError: generateGentlerResponse is not defined
+    at generateGentleRephrasing (JournalEntry.tsx:53:7)
+    at handleSubmit (JournalEntry.tsx:67:27)
