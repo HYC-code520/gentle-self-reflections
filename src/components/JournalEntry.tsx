@@ -38,9 +38,10 @@ const JournalEntry = () => {
         pattern.test(text)
       );
 
-      if (isToxic || isInsult || containsNegativePattern) return "harsh";
-      if (text.toLowerCase().includes("enough")) return "harsh";
-      return "neutral";
+      if (isToxic || isInsult || containsNegativePattern || text.toLowerCase().includes("enough")) {
+        return "harsh";
+      }
+      return text.length > 0 ? "neutral" : null;
     } catch (error) {
       console.error('Error analyzing tone:', error);
       return "neutral";

@@ -2,8 +2,8 @@
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true // Note: Only for development
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true
 });
 
 export const generateGentlerResponse = async (text: string): Promise<string> => {
