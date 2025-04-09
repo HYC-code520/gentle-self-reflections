@@ -1,6 +1,7 @@
 import React from "react";
 import { Heart, AlertTriangle, Check, MessageSquare } from "lucide-react";
 import { parseOpenAIResponse } from "@/utils/parseResponse";
+import ReframeDisplay from "@/components/ReframeDisplay";
 
 type FeedbackDisplayProps = {
   tone: "positive" | "harsh" | "neutral" | null;
@@ -51,7 +52,7 @@ const FeedbackDisplay = ({ tone, gentleRephrasing }: FeedbackDisplayProps) => {
 
       {/* Gentle rephrasing section */}
       <div className="mt-4">
-        {gentleRephrasing && parseOpenAIResponse(gentleRephrasing) && (
+        {gentleRephrasing && (
           <ReframeDisplay {...parseOpenAIResponse(gentleRephrasing)} />
         )}
       </div>
