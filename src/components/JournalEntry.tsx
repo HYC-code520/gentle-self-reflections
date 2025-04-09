@@ -64,7 +64,8 @@ const JournalEntry = () => {
     try {
       const tone = await analyzeTone(journalText);
       setToneFeedback(tone);
-      setGentleRephrasing(generateGentleRephrasing(journalText, tone));
+      const response = await generateGentleRephrasing(journalText, tone);
+      setGentleRephrasing(response);
     } catch (error) {
       console.error("Error analyzing text:", error);
       setToneFeedback("neutral");
