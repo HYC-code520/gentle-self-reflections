@@ -1,3 +1,4 @@
+import { ParsedResponse } from './types';
 
 interface ParsedResponse {
   intro: string;
@@ -7,30 +8,22 @@ interface ParsedResponse {
   }>;
 }
 
-export const parseOpenAIResponse = (response: string): ParsedResponse | null => {
-  try {
-    // Find the intro (everything before "1.")
-    const introMatch = response.match(/^(.*?)(?=\s*1\.)/s);
-    const intro = introMatch ? introMatch[1].trim() : '';
+export const parseOpenAIResponse = (text: string): ParsedResponse => {
+  const [introPart, ...lines] = text.split(/\d+\./).filter(Boolean);
 
-    // Find all numbered items
-    const items = response.match(/\d+\.\s+(.*?)(?=(?:\d+\.|$))/gs);
-
-    if (!items) return null;
-
-    const reframes = items.map(item => {
-      // Split at the first comma or similar punctuation
-      const [original, ...reframeParts] = item.replace(/^\d+\.\s+/, '').split(/,(.+)/);
-      
+  const reframes = lines.map((line) => {
+    const match = line.match(/(?:Instead of saying|When you think|Rather than saying|If you feel|When you feel|If you're feeling|When you believe)\s+"(.+?)".*?"(.+?)"/i);
+    if (match) {
       return {
-        original: original.trim(),
-        reframe: reframeParts.join(',').trim()
+        original: match[1].trim(),
+        reframe: match[2].trim()
       };
-    });
-
-    return { intro, reframes };
-  } catch (error) {
-    console.error('Error parsing OpenAI response:', error);
+    }
     return null;
-  }
+  }).filter((item): item is NonNullable<typeof item> => item !== null);
+
+  return {
+    intro: introPart.trim(),
+    reframes: reframes
+  };
 };
