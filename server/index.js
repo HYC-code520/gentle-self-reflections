@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -7,19 +8,24 @@ const harshExamples = require("../src/lib/harshEmbeddings.json");
 dotenv.config();
 
 const app = express();
+
+// Configure CORS before other middleware
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.use(express.json());
+
 const openai = new OpenAI({ 
   apiKey: process.env.VITE_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true 
 });
-app.use(cors({
-  origin: '*',
-  methods: ['POST', 'GET', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
-app.use(express.json());
 
-function cosineSimilarity(vecA: number[], vecB: number[]): number {
+function cosineSimilarity(vecA, vecB) {
   const dot = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
   const magA = Math.sqrt(vecA.reduce((sum, a) => sum + a * a, 0));
   const magB = Math.sqrt(vecB.reduce((sum, b) => sum + b * b, 0));
@@ -50,6 +56,7 @@ app.post("/check-harsh", async (req, res) => {
   }
 });
 
-app.listen(5000, "0.0.0.0", () => {
-  console.log("Server running on http://0.0.0.0:5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
