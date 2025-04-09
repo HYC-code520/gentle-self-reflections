@@ -7,8 +7,15 @@ const harshExamples = require("../src/lib/harshEmbeddings.json");
 dotenv.config();
 
 const app = express();
-const openai = new OpenAI({ apiKey: process.env.VITE_OPENAI_API_KEY });
-app.use(cors());
+const openai = new OpenAI({ 
+  apiKey: process.env.VITE_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true 
+});
+app.use(cors({
+  origin: true,
+  methods: ['POST', 'GET', 'OPTIONS'],
+  credentials: true
+}));
 app.use(express.json());
 
 function cosineSimilarity(vecA: number[], vecB: number[]): number {
