@@ -19,8 +19,8 @@ const JournalEntry = () => {
   const [selfCareMode, setSelfCareMode] = useState(false);
 
   const appendUniqueText = (newText: string) => {
-    setJournalText(prevText => {
-      const lines = prevText.split('\n').map(line => line.trim());
+    setJournalText((prevText) => {
+      const lines = prevText.split("\n").map((line) => line.trim());
       if (!lines.includes(newText.trim())) {
         return prevText ? `${prevText}\n${newText}` : newText;
       }
@@ -42,7 +42,8 @@ const JournalEntry = () => {
 
     setIsSubmitting(true);
     try {
-      const { isToxic, isInsult } = await analyzeToneWithPerspective(journalText);
+      const { isToxic, isInsult } =
+        await analyzeToneWithPerspective(journalText);
 
       // Check for negative self-talk patterns
       const negativePatterns = [
@@ -57,17 +58,34 @@ const JournalEntry = () => {
         /behind/i,
         /failing/i,
         /can't keep up/i,
-        /struggle/i
+        /struggle/i,
       ];
 
-      const negativeWords = ["failure", "hopeless", "inadequate", "disappointing", "incompetent"];
+      const negativeWords = [
+        "failure",
+        "hopeless",
+        "inadequate",
+        "disappointing",
+        "incompetent",
+      ];
 
-      const containsNegativePattern = negativePatterns.some(pattern => pattern.test(journalText));
-      const containsNegativeWord = negativeWords.some(word => journalText.toLowerCase().includes(word));
+      const containsNegativePattern = negativePatterns.some((pattern) =>
+        pattern.test(journalText),
+      );
+      const containsNegativeWord = negativeWords.some((word) =>
+        journalText.toLowerCase().includes(word),
+      );
 
-      const tone: ToneType = isToxic || isInsult || containsNegativePattern || containsNegativeWord || journalText.toLowerCase().includes("enough")
-        ? "harsh"
-        : journalText.length > 0 ? "neutral" : null;
+      const tone: ToneType =
+        isToxic ||
+        isInsult ||
+        containsNegativePattern ||
+        containsNegativeWord ||
+        journalText.toLowerCase().includes("enough")
+          ? "harsh"
+          : journalText.length > 0
+            ? "neutral"
+            : null;
 
       setToneFeedback(tone);
 
@@ -75,9 +93,13 @@ const JournalEntry = () => {
         const response = await generateGentlerResponse(journalText);
         setGentleRephrasing(response);
       } else if (tone === "positive") {
-        setGentleRephrasing("That's a kind way to speak to yourself. Keep nurturing this positive self-talk!");
+        setGentleRephrasing(
+          "That's a kind way to speak to yourself. Keep nurturing this positive self-talk!",
+        );
       } else {
-        setGentleRephrasing("You're doing well balancing your thoughts. Remember that it's okay to be kind to yourself.");
+        setGentleRephrasing(
+          "You're doing well balancing your thoughts. Remember that it's okay to be kind to yourself.",
+        );
       }
     } catch (error) {
       console.error("Error analyzing text:", error);
@@ -94,6 +116,9 @@ const JournalEntry = () => {
     setGentleRephrasing(
       "It's perfectly okay to rest. Your inner child thanks you for recognizing when you need space. You're showing wisdom by pausing when you need to.",
     );
+  };
+  const handleClearAll = () => {
+    setJournalText("");
   };
 
   return (
@@ -123,7 +148,9 @@ const JournalEntry = () => {
 
               <Button
                 type="submit"
-                disabled={isSubmitting || (!journalText.trim() && !selfCareMode)}
+                disabled={
+                  isSubmitting || (!journalText.trim() && !selfCareMode)
+                }
                 className="mt-2 rounded-full px-6 py-2 bg-gradient-to-r from-softPink to-pink-400 hover:opacity-90 transition-all duration-300 text-pink-900 font-medium flex items-center gap-2 shadow-sm"
               >
                 {isSubmitting ? (
@@ -137,6 +164,14 @@ const JournalEntry = () => {
                     <span>Check Your Self-Talk</span>
                   </>
                 )}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleClearAll}
+                className="rounded-full px-6 py-2 border-softPink text-pink-700 hover:bg-pink-50 transition-all duration-300 font-medium"
+              >
+                Clear All
               </Button>
             </div>
           </div>

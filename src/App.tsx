@@ -8,6 +8,7 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Favorites from "./pages/Favorites";
 import { AuthProvider } from "./hooks/useAuth";
+import React, { useState, useEffect } from "react";
 
 const queryClient = new QueryClient();
 
