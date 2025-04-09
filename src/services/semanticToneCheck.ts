@@ -3,7 +3,7 @@ export const checkIfHarshSemantically = async (
 ): Promise<boolean> => {
   try {
     const response = await fetch(
-      "https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev:5000/check-harsh",
+      "https://531f4aa2-444d-4e97-b6f8-954024275ddd-00-15028nztgal8d.spock.replit.dev:3000/check-harsh",
       {
         // Update to your Replit URL
         method: "POST",
