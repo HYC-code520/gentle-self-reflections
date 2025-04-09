@@ -49,14 +49,10 @@ const FeedbackDisplay = ({ tone, gentleRephrasing }: FeedbackDisplayProps) => {
       </div>
 
       {/* Gentle rephrasing section */}
-      <div className="bg-softGray p-4 rounded-2xl shadow-sm border border-gray-200">
-        <div className="flex items-center gap-2 mb-2">
-          <MessageSquare className="h-5 w-5 text-pink-500 flex-shrink-0" />
-          <h3 className="font-heading text-sm font-medium">
-            A gentler approach:
-          </h3>
-        </div>
-        <p className="text-sm pl-7">{gentleRephrasing}</p>
+      <div className="mt-4">
+        {gentleRephrasing && parseOpenAIResponse(gentleRephrasing) && (
+          <ReframeDisplay {...parseOpenAIResponse(gentleRephrasing)} />
+        )}
       </div>
     </div>
   );
